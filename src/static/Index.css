@@ -1,0 +1,7 @@
+.container{
+    display: flex;
+   
+}
+.timeSlotContainer{
+    height: 100vh;overflow: scroll;
+}

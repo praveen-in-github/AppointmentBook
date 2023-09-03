@@ -1,0 +1,77 @@
+.form-input input {
+    border-radius: 5px;
+  }
+
+
+.form-input select{
+  width: 100%;padding: 10px;
+}
+.form-element-date{
+  display: flex;justify-content: space-between;
+}
+.selection-box{
+  position: relative;
+    border: 1px solid black;padding: 12px 5px;width: 100%;font-size: 16px;cursor: pointer;border-top-left-radius: 5px;border-top-right-radius:5px ;
+
+}
+.filter-icon{
+  position: absolute;right:20px;top: 50%;transform: translateY(-50%);
+}
+.filter-icon svg{
+  width: 24px;height: 24px;
+}
+.selection-options{
+  border: 1px solid black;display: flex;flex-direction: column;border-bottom-left-radius:5px ;border-bottom-right-radius: 5px;
+  align-items: stretch;justify-content: flex-start;font-size: 16px;
+}
+.selection-options button{border: none;
+  outline:none;background: transparent;padding: 10px;text-align: start;font-size: 16px;cursor: pointer;
+}
+  .page-info-heading{
+    background-color: rgb(100,100,100);
+    padding: 10px;color: #ffffff;
+  }
+  .form-label-mand{
+    position: relative;width: fit-content;
+  }
+  .form-label-content::after{
+    content: '*';
+    position:absolute;;top: -2px;right:-8px;color: red;
+  }
+  .form-wrapper{
+    margin: 40px auto;
+    width: -moz-fit-content;
+    width: 600px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.25);
+    padding: 50px;
+    box-sizing: content-box;
+  }
+  .date-booking {
+    display: flex;
+    justify-content:center;
+  }
+  .form-wrapper{
+
+  }
+  .form-element{
+      margin: 20px;
+      margin-left: 0px;
+  }
+  .form-label{
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: bold;;
+  }
+  .form-input input{
+      border: 1px solid rgba(0,0,0,0.3);
+      padding: 5px 10px;
+      width: 100%;
+  }
+  .form-input input:focus,select:focus{
+     outline:none; border:2px solid blue;
+  }
+  .submit-btn input{
+      border: none;outline: none;cursor: pointer;
+      background-color: blue;color: #fff;
+      padding: 10px 25px;margin-top: 20px;width: 100%;
+  }

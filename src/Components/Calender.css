@@ -1,0 +1,49 @@
+.calender {
+    border: 1px solid black;
+    width: 300px;
+    padding: 5px;
+  }
+  .week-names{
+    margin: 10px 0px 10px 0px;
+  }
+  .controller {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto auto;
+    grid-column-gap: 5px;
+    margin-top: 10px;
+  }
+  .date-selected {
+    box-shadow: 0px 0px 2px 3px rgba(0,  255,0);
+  }
+  .date-button{
+    background: none;
+    width: 25px;height: 25px;
+    border-radius: 50%;
+    text-align: "center";
+    outline: none;
+    border: none;
+    display:flex;justify-content: center;align-items: center;
+    margin: auto;cursor: pointer;
+
+  }
+  .header-desc {
+    text-align: center;
+  }
+  .week-days {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    margin-top: 10px;
+    grid-row-gap: 5px;
+    
+  }
+  .week-names {
+    text-align: center;
+  }
+.controller button{
+    background-color: blue;color: #fff;outline: none;border: none;margin-left: 2px;margin-right: 2px;
+}  
+/*Newly Added Styles*/
+.date-available{
+  background-color: green;
+  color: white;
+}

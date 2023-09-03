@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Appointment from "./Components/AppointmentBooking";
+import LoginComponent from "./Components/LoginComponent";
 
-function App() {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBarComponent from "./Components/NavBarComponent";
+import axios from "axios";
+import MyAppointments from "./Components/MyAppointments";
+import { useRef, useState } from "react";
+
+import ProtectedComponent from "./Components/ProtectedComponent";
+
+
+export default function App() {
+  const httpRequest = useRef(
+    axios.create({
+      baseURL: "http://localhost:5000",
+      withCredentials: true,
+    })
+  );
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBarComponent httpRequest={httpRequest.current} setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <LoginComponent
+              setLoggedIn={setLoggedIn}
+              httpRequest={httpRequest.current}
+            />
+          }
+        ></Route>
+        <Route
+          path="/bookAppointment"
+          element={
+            <ProtectedComponent loggedIn={loggedIn}><Appointment httpRequest={httpRequest.current} /></ProtectedComponent>}
+        ></Route>
+        <Route
+          path="/myAppointments"
+          element={
+            <ProtectedComponent loggedIn={loggedIn}>
+          <MyAppointments httpRequest={httpRequest.current} /></ProtectedComponent>}
+        ></Route>
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
