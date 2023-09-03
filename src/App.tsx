@@ -13,7 +13,7 @@ import ProtectedComponent from "./Components/ProtectedComponent";
 export default function App() {
   const httpRequest = useRef(
     axios.create({
-      baseURL: process.env.SERVER_URL,
+      baseURL: "https://appointmentbookserver.onrender.com",
       withCredentials: true,
     })
   );
