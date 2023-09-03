@@ -13,7 +13,7 @@ import ProtectedComponent from "./Components/ProtectedComponent";
 export default function App() {
   const httpRequest = useRef(
     axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: process.env.SERVER_URL,
       withCredentials: true,
     })
   );
