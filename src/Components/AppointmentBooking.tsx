@@ -27,7 +27,7 @@ export default function Appointment({ httpRequest }:Props) {
   const [month, setMonth] = useState(cur_month);
   const [date, setDate] = useState<number|null>(null);
   const [duration, setDuration] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage] = useState();
   const [showOptions, setShowOptions] = useState(false);
 
   const [subject, setSubject] = useState<string>();
