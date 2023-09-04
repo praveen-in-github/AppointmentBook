@@ -42,6 +42,12 @@ export default function App() {
             <ProtectedComponent loggedIn={loggedIn}>
           <MyAppointments httpRequest={httpRequest.current} /></ProtectedComponent>}
         ></Route>
+        <Route
+          path="*"
+          element={
+            <ProtectedComponent loggedIn={loggedIn}><Appointment httpRequest={httpRequest.current} /></ProtectedComponent>}
+        ></Route>      
+
       </Routes>
     </Router>
   );

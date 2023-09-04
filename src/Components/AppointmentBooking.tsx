@@ -132,7 +132,9 @@ export default function Appointment({ httpRequest }:Props) {
     let slotsMap = new Map<string,Appointmentgroup>();
     if (slots) {
       slots.map((doc) => {
+
         slotsMap.set(doc["_id"], doc);
+        return ;
       });
     }
     return slotsMap;
@@ -175,7 +177,7 @@ export default function Appointment({ httpRequest }:Props) {
               />
             </div>
           </div>
-          {status == "Fetched" && (
+          {status === "Fetched" && (
             <div>
               <div className="form-label form-label-mand">
                 <label className="form-label-content">
@@ -190,9 +192,9 @@ export default function Appointment({ httpRequest }:Props) {
               />
             </div>
           )}
-          {status == "Fetching" || status == "Idle" ? (
+          {status === "Fetching" || status === "Idle" ? (
             <p>Loading</p>
-          ) : status == "Failed" ? (
+          ) : status === "Failed" ? (
             <p>Couldnt Connect to Server</p>
           ) : (
             ""

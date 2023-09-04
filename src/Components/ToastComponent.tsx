@@ -36,7 +36,7 @@ export default function ToastComponent({ status, message }:Props) {
             : "toast-container toast-container-error"
         }
       >
-        <p>{message}</p>
+        <p className="toast-message">{message}</p>
         <button className="close-btn" onClick={closeToast}>
           X
         </button>

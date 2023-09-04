@@ -2,7 +2,7 @@ import {  useState, useRef,ChangeEvent } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import {AxiosInstance} from 'axios'
+import {AxiosInstance, AxiosResponse} from 'axios'
 
 
 import "../static/LoginComponent.css";
@@ -50,15 +50,23 @@ export default function LoginComponent ({ httpRequest,setLoggedIn }:Props) {
         })
         .catch((err) => {
           console.log(err);
+          setEmailError("Server Error.Please Try After Some Time");
+
         });
+        console.log("email "+email)
     } else {
       const data = { otp: otp.toString().replaceAll(",", "") };
       httpRequest
         .post(`/user/verifyOtp`, data)
-        .then((response) => {
+        .then((response:AxiosResponse) => {
+
+          console.log(response);
           if (response.status == 200) {
             setLoggedIn(true);
             navigate("/bookAppointment");
+          }
+          else{
+            setErrorOTPMessage(response.data);
           }
         })
         .catch((err) => {
@@ -106,8 +114,9 @@ export default function LoginComponent ({ httpRequest,setLoggedIn }:Props) {
                 placeholder="Enter Email Address"
                 value={email}
               />
+              <p className="error-message">{emailErrorMessage}</p>
+
             </div>
-            <p className="error-message">{emailErrorMessage}</p>
           </div>
 
           <div className="button-holder">
